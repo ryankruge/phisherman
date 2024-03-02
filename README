@@ -14,4 +14,3 @@ Please ensure that you install all of the required dependencies within the requi
 [DO NOT] execute the installation process with root privileges; otherwise you may face issues when executing from a non-sudo account.
 
 Please use the --break-system-packages flag while installing dependencies if you are running Python within a protected environment to bypass limitations set in place by the program.
-
