@@ -92,6 +92,7 @@ try:
                         selected = True
                 if not selected:
                     Response("Invalid selection, please use the -l flag to view available options.", 0)
+                    sys.exit()
             case '-p':
                 port = int(sys.argv[i + 1])
 
