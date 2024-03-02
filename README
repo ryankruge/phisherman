@@ -4,6 +4,8 @@ This program is not intended for malice, and therefore, those who use it for suc
 
 Disclaimers aside, I hope that this tool can educate people.
 
+For correct functionality, you must place the 'fish' executable file within the '/usr/local/bin' directory and the 'fish-src' folder within the '/usr/local/src' folder.
+
 To install the dependencies, please enter the following command while actively in the 'src' directory.
 [*] "pip install -r requirements.txt --break-system-packages"
 
