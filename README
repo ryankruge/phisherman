@@ -1,0 +1,15 @@
+This is a piece of software that is capable of harvesting credentials to demonstrate how easy it is to impersonate large corporate websites in order to harvest user credentials.
+
+This program is not intended for malice, and therefore, those who use it for such reasons are responsible for their own actions. I do not condone the use of software to perform illegal activities or carry out attacks.
+
+Disclaimers aside, I hope that this tool can educate people.
+
+To install the dependencies, please enter the following command while actively in the 'src' directory.
+[*] "pip install -r requirements.txt --break-system-packages"
+
+Please ensure that you install all of the required dependencies within the requirements.txt file for full functionality.
+
+[DO NOT] execute the installation process with root privileges; otherwise you may face issues when executing from a non-sudo account.
+
+Please use the --break-system-packages flag while installing dependencies if you are running Python within a protected environment to bypass limitations set in place by the program.
+
