@@ -7,3 +7,5 @@ Disclaimers aside, I hope that this tool can educate people.
 For correct functionality, you must place the 'fish' executable file within the '/usr/local/bin' directory and the 'fish-src' folder within the '/usr/local/src' folder.
 
 For anybody having issues with installing this software, please ensure that you have the PHP package installed via your distributions built-in package manager. Then, if needed, please install the 'colorama' and 'art' packages via the 'pip' installer.
+
+The default port for this software is port 8000, you may connect to the website by entering your loopback address followed by this default port.
