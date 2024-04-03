@@ -1,2 +1,0 @@
-#!/bin/bash
-sudo pacman -Sy --needed php python3
