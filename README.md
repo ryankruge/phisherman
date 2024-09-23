@@ -12,7 +12,7 @@ python -m pip install colorama
 ```
 sudo pacman -Sy php
 ```
-Or for **Debian**, **Ubuntu** and other Linux distributions.
+Or for **Debian**, **Ubuntu** and other **Linux** distributions.
 ```
 sudo apt-get install php
 ```
